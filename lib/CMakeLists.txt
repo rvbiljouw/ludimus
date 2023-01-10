@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.4.1)
-include_directories( curve25519 ed25519 playfair )
+
+find_package(PkgConfig REQUIRED)
+
+pkg_check_modules(PLIST REQUIRED libplist-2.0)
+
+include_directories( curve25519 ed25519 playfair ${PLIST_INCLUDE_DIRS} )
 
 set(CMAKE_C_STANDARD 11)
 
